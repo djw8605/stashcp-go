@@ -25,9 +25,13 @@
 #   unused-packages = true
 
 
+#[[constraint]]
+#  branch = "master"
+#  name = "github.com/golang-basic/go-curl"
+
 [[constraint]]
   branch = "master"
-  name = "github.com/golang-basic/go-curl"
+  name = "github.com/cavaliercoder/grab"
 
 [prune]
   go-tests = true

@@ -9,7 +9,8 @@ import (
 )
 
 // Redirector
-var global_redirector string = "http://redirector.osgstorage.org:8000"
+//var global_redirector string = "http://redirector.osgstorage.org:8000"
+var global_redirector string = "http://hcc-stash.unl.edu:8000"
 
 func main() {
 
@@ -43,14 +44,15 @@ func main() {
 		os.Exit(1)
 	}
 	source := args[0]
-	//dest := args[1]
+	dest := args[1]
 
 	// Combine the paths
 	u, _ := url.Parse(global_redirector)
 	u.Path = path.Join(u.Path, source)
 
 	fmt.Printf("Trying URL: %v\n", u.String())
-	redir := GetRedirect(u.String())
-	fmt.Printf("ERROR: %v\n", redir)
+	var status = DownloadHTTP(u.String(), dest)
+	//redir := GetRedirect(u.String())
+	fmt.Printf("ERROR: %v\n", status)
 
 }
